@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Square+Peg&display=swap');
+        body{
+            font-family: 'Square Peg', cursive;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            row-gap: 40px;
+            background-image:url(BG-img.jpg);
+            background-size: 100%;
+        }
+        input{
+            font-family: 'Square Peg', cursive;
+            width: 80%;
+            padding: 10px;
+            font-size: 30px;
+            border: solid 2px gray;
+            border-radius: 10px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.144);
+            color: white;
+        }
+        #div{
+            font-family: 'Square Peg', cursive;
+            width: 95%;
+            height: 100px;
+            display: flex;
+            font-size: 30px;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            border: solid 2px gray;
+            border-radius: 50px;
+        }
+        button{
+            font-family: 'Square Peg', cursive;
+            width: 80%;
+            font-size: 30px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.123);
+            border-radius: 10px;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <input id="input" type="text" placeholder="Enter a number" />
+    <div id="div"></div>
+    <button onclick="toCentimeter()">Convert to cm</button>
+    <button onclick="toInch()">Convert to inch</button>
+    <button onclick="empty(), emptyInput()">Clear</button>
+    
+
+    <script>
+
+        
+        let div = document.getElementById('div');
+
+        function toCentimeter() {
+            empty()
+            let textBox = document.getElementById('input');
+            let input = textBox.value;
+            cm = input*2.54;
+            render(cm + ' cm');
+        }
+
+        function toInch() {
+            empty()
+            let textBox = document.getElementById('input');
+            let input = textBox.value;
+            inch = input/2.54;
+            render(inch + ' inches');
+        }
+
+        function render(result){
+            let box = document.createElement('div');
+            box.innerText = result;
+            div.appendChild(box);
+        }
+        
+        function empty() {
+            div.innerHTML = '';
+        }
+
+        function emptyInput() {
+            let textBox = document.getElementById('input');
+            textBox.value = '';
+        }
+
+    </script>
+
+</body>
+
+</html>
